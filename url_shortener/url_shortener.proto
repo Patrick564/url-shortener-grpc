@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option go_package = "./url_shortener";
+
+service UrlSortener {
+  rpc AddUrl (Url) returns (ShortUrl) {}
+
+  rpc ListUrls (Empty) returns (stream ShortUrl) {}
+
+  rpc GetUrl (ShortUrl) returns (Url) {}
+}
+
+message Url {
+  string url = 1;
+}
+
+message ShortUrl {
+  string short_url = 1;
+}
+
+message Empty {}
