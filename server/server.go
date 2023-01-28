@@ -11,7 +11,7 @@ type UrlShortenerServer struct {
 }
 
 func (u *UrlShortenerServer) AddUrl(ctx context.Context, in *pb.Url) (*pb.ShortUrl, error) {
-	return nil, nil
+	return &pb.ShortUrl{ShortUrl: "example short url response"}, nil
 }
 
 func (u *UrlShortenerServer) ListUrls(in *pb.Empty, url pb.UrlSortener_ListUrlsServer) error {
@@ -19,7 +19,7 @@ func (u *UrlShortenerServer) ListUrls(in *pb.Empty, url pb.UrlSortener_ListUrlsS
 }
 
 func (u *UrlShortenerServer) GetUrl(ctx context.Context, in *pb.ShortUrl) (*pb.Url, error) {
-	return nil, nil
+	return &pb.Url{Url: "example url original"}, nil
 }
 
 func NewServer() *UrlShortenerServer {
